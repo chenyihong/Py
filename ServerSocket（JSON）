@@ -436,13 +436,53 @@ context = """
   },
 ]
 """
+context1 = """
+    <!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+	body{
+		background: linear-gradient(221deg, #3ec5a2, #b7f255);
+		background-size: 400% 400%;
+
+		-webkit-animation: AnimationName 25s ease infinite;
+		-moz-animation: AnimationName 25s ease infinite;
+		animation: AnimationName 25s ease infinite;
+
+		@-webkit-keyframes AnimationName {
+			0%{background-position:0% 20%}
+			50%{background-position:100% 81%}
+			100%{background-position:0% 20%}
+		}
+		@-moz-keyframes AnimationName {
+			0%{background-position:0% 20%}
+			50%{background-position:100% 81%}
+			100%{background-position:0% 20%}
+		}
+		@keyframes AnimationName { 
+			0%{background-position:0% 20%}
+			50%{background-position:100% 81%}
+			100%{background-position:0% 20%}
+		}
+	}
+</style>
+<title></title>
+</head>
+<body>
+
+</body>
+</html>
+"""
+
 
 while True:
     client, addr = s.accept()
     # print(client)
     print(addr)
     # client.send(context)
-    client.send(str(len(context)))
+    client.send('HTTP/1.0 200 OK\n')
+    client.send('Content-Type:text/html;charset=utf-8\n')
+    client.send('\n')
     client.send(context)
     request = client.recv(10240)
     print(request)
