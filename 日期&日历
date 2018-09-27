@@ -1,0 +1,32 @@
+# -*- coding: UTF-8 -*-
+import time;
+
+myTime=time.time()
+print(myTime)
+
+
+#获取当前时间
+localTime=time.localtime(myTime)
+print(localTime)
+
+
+#获取格式化后的时间
+
+timer = time.asctime(localTime)
+print(timer)
+
+print(time.strftime("%H:%M:%S"))
+print(time.strftime("%Y-%m-%d %H:%M:%S"))
+
+# calendar日历
+import  calendar
+'''
+yymonth=0
+yy=input("Inserisci l`anno:")
+mm=input("Inserisci il mese:")
+if mm<=12:
+    myCalendar = calendar.month(yy, mm)
+    print(myCalendar)
+else:
+    print("err")
+'''
