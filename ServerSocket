@@ -1,0 +1,453 @@
+# -*- coding: UTF-8 -*-
+import socket;
+
+s = socket.socket()
+
+host = socket.gethostname()
+print(host)
+
+hostInfo = socket.gethostbyaddr(host)  # 获取用户名称，MAC地址
+print(hostInfo)
+
+myIPAdd = socket.gethostbyname(host)  # 获取网络地址
+print(myIPAdd)
+
+port = 1314
+
+s.bind((host, port))
+
+s.listen(5)
+print("-------------------------------")
+'''
+request = ""
+myFile = open("test.html", "r+")
+print(myFile.read())
+'''
+
+context = """
+    [
+  {
+    "title": "燃尽人间色",
+    "author": "",
+    "type": "音乐",
+    "url": ""
+  },
+  {
+    "title": "浴火成诗",
+    "author": ["迪丽热巴","毛不易"],
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=v3Xc80z45xo&vl=zh-Hans"
+  },
+  {
+    "title": "云裳羽衣曲",
+    "author": "周深",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=E2bpviMgPLk"
+  },
+  {
+    "title": "叮当猫",
+    "author": "电流妹",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=6_CiEMvsTaU"
+  },
+  {
+    "title": "醉千年",
+    "author": ["李袁杰","李俊佑"],
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=KKGmrrq6Yho"
+  },
+  {
+    "title": "青梅竹马",
+    "author": "陈秋含",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=a76c_48DPMY"
+  },
+  {
+    "title": "他的剑",
+    "author": "西瓜JUN",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=2xVnKW7TlK4"
+  },
+  {
+    "title": "遗失的心跳",
+    "author": "萧亚轩",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=NTHtY0jRxAE"
+  },
+  {
+    "title": "恋爱三十七度",
+    "author": "璟年",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=KN5gdrF61kE"
+  },
+  {
+    "title": "云裳谣",
+    "author": "SING女团",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=dBijl3ILEXY"
+  },
+  {
+    "title": "夜樱",
+    "author": "三无",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=LkxbEK0t6Sk"
+  },
+  {
+    "title": "心若为城",
+    "author": "CRITTY",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=bKx2hwIBkjg"
+  },
+  {
+    "title": "NO EXIT ORION 粤语版",
+    "author": "Love Live",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=iMtZBH6vfoE"
+  },
+  {
+    "title": "我在你的眼睛里迷了路",
+    "author": "恩宠",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=idWSyrTwAIE"
+  },
+  {
+    "title": "错爱",
+    "author": ["季彦霖","刘增瞳"],
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=J0DoXbiZpwA"
+  },
+  {
+  	"title": "洛阳怀",
+    "author": "三无",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=1iG6885YUZs"
+  },
+  {
+    "title": "逆浪千秋",
+    "author": "三无",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=neL0v6AEXeE"
+  },
+  {
+    "title": "白衣少年",
+    "author": "许诗茵",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=MZBM_ogULsw"
+  },
+  {
+    "title": "四分之三的恋爱",
+    "author": ["王谙","大一学长"],
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=ioEQcv6aMBs"
+  },
+  {
+    "title": "胭脂装",
+    "author": "少年霜",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=U8V7JnbxqzI"
+  },
+  {
+    "title": "that girl",
+    "author": "Morris翻唱",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=HZgD50gcBoY"
+  },
+  {
+    "title": "回归潇洒",
+    "author": "玄觞",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=COR1I9peHh8"
+  },
+  {
+    "title": "捉迷藏",
+    "author": "T-ARA",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=4Em8pJDPLls"
+  },
+  {
+    "title": "桃花诀",
+    "author": "萧忆情",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=ms2mGrN9MIQ"
+  },
+  {
+    "title": "9420",
+    "author": "？",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=BS06ma1wgPo"
+  },
+  {
+    "title": "7538",
+    "author": "？",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=OkjCixivVN0"
+  },
+  {
+    "title": "是风动",
+    "author": ["李蚊香","佑可猫"],
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=RpBq-yIRzAk"
+  },
+  {
+    "title": "9277",
+    "author": "周晏伊",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=KiFl44RSYN0"
+  },
+  {
+    "title": "浪漫宣告",
+    "author": "陈奕夫",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=BBHiqHNTHLA"
+  },
+  {
+    "title": "着迷",
+    "author": "胜屿",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=h1gEcaQzXtc"
+  },
+  {
+    "title": "白色桔梗花",
+    "author": "李哈哈",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=IFdXM15oFoU"
+  },
+  {
+    "title": "双子",
+    "author": "徐秉龙",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=51ZX6KFe1S0"
+  },
+  {
+    "title": "是我太傻了",
+    "author": "季彦霖",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=Xp1xmuzCywo"
+  },
+  {
+    "title": "最美的婚礼",
+    "author": "白小白",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=3VMtvyNKBvU"
+  },
+  {
+    "title": "分手就分手",
+    "author": "小山",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=sYPopaC18k0"
+  },
+  {
+    "title": "童话",
+    "author": "光良",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=vApDVG3pyaM"
+  },
+  {
+    "title": "幸福在一起",
+    "author": "黎嘉浩",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=OCPkcWCAXc4"
+  },
+  {
+    "title": "再也不会遇见第二个她",
+    "author": "李哈哈",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=GHjVZIIM3ko"
+  },
+  {
+    "title": "三生",
+    "author": "剑三",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=kGJGehSP5mc"
+  },
+  {
+    "title": "后来才发现",
+    "author": "庄心妍",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=KMOAQj_uTNI"
+  },
+  {
+    "title": "我想",
+    "author": "麦小兜",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=Re_MXlPkW_4&frags=wn"
+  },
+  {
+    "title": "轮回",
+    "author": "刘增瞳",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=cAEJihd3QZQ"
+  },
+  {
+    "title": "谁曾经陪你接近童话",
+    "author": "胖胖胖",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=17qj1aqN8Es"
+  },
+  {
+    "title": "烟火里的尘埃",
+    "author": "华晨宇",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=SDhd4raC2xI"
+  },
+  {
+    "title": "落差",
+    "author": "小魂",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=zavx4yagPVY"
+  },
+  {
+    "title": "灯盏",
+    "author": "刘增瞳",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=u4D2jvMKM3c"
+  },
+  {
+    "title": "Love U",
+    "author": "齐晨",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=Tik915waGHM"
+  },
+  {
+    "title": "谁曾经陪你接近童话",
+    "author": "周童",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=ky_G6o2zHZ8"
+  },
+  {
+    "title": "何必呢",
+    "author": "格子兮",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=9oi3ZNvW3xE"
+  },
+  {
+    "title": "那时雨",
+    "author": "徐良",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=-oPCz6HY7CM"
+  },
+  {
+    "title": "去你的撩妹",
+    "author": "封茗囧菌",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=Ul_oq-avQVk"
+  },
+  {
+    "title": "摩天轮的眼泪",
+    "author": "创造101",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=ouXtmrDIiwk"
+  },
+  {
+    "title": "答案",
+    "author": "KD",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=d6FBithEy4U"
+  },
+  {
+    "title": "没有你的日子我怎么活下去",
+    "author": "梦然",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=3xVbSud8iBs"
+  },
+  {
+    "title": "离人愁",
+    "author": "曲肖冰",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=0DCWGFJo_MQ"
+  },
+  {
+    "title": "浪人琵琶",
+    "author": "胡66",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=sbmzhqjZ-_k"
+  },
+  {
+    "title": "爱的魔法",
+    "author": "封茗囧菌",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=SkDHzXouJzo"
+  },
+  {
+    "title": "洗澡歌",
+    "author": "？",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=HQbogRf8ncw"
+  },
+  {
+    "title": "美人目",
+    "author": "刘增瞳",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=wv_jqlw1R2k"
+  },
+  {
+    "title": "浪漫周末",
+    "author": ["天舞","江嘉莉"],
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=KDKi-ZBMntw"
+  },
+  {
+    "title": "唱腔另类",
+    "author": "?",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=P96YRMYcE1M"
+  },
+  {
+    "title": "日常喜欢您",
+    "author": "王欣宇",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=o7hjKQMOXnI"
+  },
+  {
+    "title": "Planet中文版",
+    "author": "？",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=iCbQea3pyGw"
+  },
+  {
+    "title": "Mi Gente",
+    "author": "？",
+    "type": "音乐",
+    "url": "https://www.youtube.com/watch?v=4UuShjB2sIg"
+  },
+  {
+    "title": "黯然销魂",
+    "author": "",
+    "type": "音乐",
+    "url": ""
+  },
+  {
+    "title": "你要的全拿走",
+    "author": "",
+    "type": "音乐",
+    "url": ""
+  },
+  {
+    "title": "画航烟中浅",
+    "author": "",
+    "type": "音乐",
+    "url": ""
+  },
+  {
+    "title": "未见青山老",
+    "author": "",
+    "type": "音乐",
+    "url": ""
+  },
+]
+"""
+
+while True:
+    client, addr = s.accept()
+    # print(client)
+    print(addr)
+    # client.send(context)
+    client.send(str(len(context)))
+    client.send(context)
+    request = client.recv(10240)
+    print(request)
+    print("-------------------------------")
+    if request == "close":
+        s.close()
+        print("ServerSocket is closed...")
+        break
