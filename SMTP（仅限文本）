@@ -1,0 +1,21 @@
+# -*- coding: UTF-8 -*-
+from smtplib import SMTP_SSL as SMTP
+from email.mime.text import MIMEText
+
+# 发送者地址
+sender = 'cyh56204547@runoob.com'
+# 接收者地址
+receiever = 'cyh562044547@gmail.com'
+# MIME内容
+with open('ServerSocket.py', 'rb+') as f:
+    content = MIMEText(f.read(), 'plain', 'UTF-8')
+content['From'] = sender
+content['To'] = receiever
+content['Subject'] = 'smtp with python'
+
+try:
+    mySmtpMail = SMTP('smtp.gmail.com', 465)
+    mySmtpMail.login("cyh562044547@gmail.com", "***")
+    mySmtpMail.sendmail(sender, receiever, content.as_string())  # 发送者，接收者，内容
+except Exception, err:
+    print(err)
