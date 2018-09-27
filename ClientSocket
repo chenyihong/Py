@@ -1,0 +1,19 @@
+# -*- coding: UTF-8 -*-
+import socket;
+
+s = socket.socket()
+
+host = socket.gethostname()
+
+print(host)
+
+port = 1314
+
+s.connect((host, port))
+size = s.recv(1024)
+print(size)
+print(s.recv(int(size)))
+s.send("recieved")
+# s.send("close")
+# print("close is sent...")
+s.close()
