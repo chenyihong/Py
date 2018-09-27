@@ -1,0 +1,11 @@
+# os系统
+import os
+
+print(os.getcwd())
+os.chdir("..")#返回前一个文件夹
+print(os.getcwd())
+os.chdir("C:/")#改变目录到C
+print(os.getcwd())
+os.chdir("D:/")
+print(os.getcwd())
+print(os.stat("D:/"))
