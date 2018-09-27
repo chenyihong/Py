@@ -7,7 +7,8 @@ sender = 'cyh56204547@runoob.com'
 # 接收者地址
 receiever = 'cyh562044547@gmail.com'
 # MIME内容
-content = MIMEText('prova', 'plain', 'UTF-8')
+msg='muhahahahah'
+content = MIMEText(msg, 'plain', 'UTF-8')
 content['From'] = sender
 content['To'] = receiever
 content['Subject'] = 'smtp with python'
