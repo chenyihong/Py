@@ -1,0 +1,79 @@
+# -*- coding: UTF-8 -*-
+import socket;
+
+s = socket.socket()
+
+host = socket.gethostname()
+print(host)
+
+hostInfo = socket.gethostbyaddr(host)  # 获取用户名称，MAC地址
+print(hostInfo)
+
+myIPAdd = socket.gethostbyname(host)  # 获取网络地址
+print(myIPAdd)
+
+port = 1314
+
+s.bind((host, port))
+
+s.listen(5)
+print("-------------------------------")
+'''
+request = ""
+myFile = open("test.html", "r+")
+print(myFile.read())
+'''
+
+context1 = """
+    <!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+	body{
+		background: linear-gradient(221deg, #3ec5a2, #b7f255);
+		background-size: 400% 400%;
+
+		-webkit-animation: AnimationName 25s ease infinite;
+		-moz-animation: AnimationName 25s ease infinite;
+		animation: AnimationName 25s ease infinite;
+
+		@-webkit-keyframes AnimationName {
+			0%{background-position:0% 20%}
+			50%{background-position:100% 81%}
+			100%{background-position:0% 20%}
+		}
+		@-moz-keyframes AnimationName {
+			0%{background-position:0% 20%}
+			50%{background-position:100% 81%}
+			100%{background-position:0% 20%}
+		}
+		@keyframes AnimationName { 
+			0%{background-position:0% 20%}
+			50%{background-position:100% 81%}
+			100%{background-position:0% 20%}
+		}
+	}
+</style>
+<title></title>
+</head>
+<body>
+
+</body>
+</html>
+"""
+while True:
+    client, addr = s.accept()
+    # print(client)
+    print(addr)
+    # client.send(context)
+    client.send('HTTP/1.0 200 OK\n')
+    client.send('Content-Type:text/html\n')
+    client.send('\n')
+    client.send(context1)
+    request = client.recv(10240)
+    print(request)
+    print("-------------------------------")
+    if request == "close":
+        s.close()
+        print("ServerSocket is closed...")
+        break
