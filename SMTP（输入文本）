@@ -3,7 +3,7 @@ from smtplib import SMTP_SSL as SMTP
 from email.mime.text import MIMEText
 
 # 发送者地址
-sender = 'cyh56204547@runoob.com'
+sender = 'cyh56204547@gmail.com'
 # 接收者地址
 receiever = 'cyh562044547@gmail.com'
 # MIME内容
